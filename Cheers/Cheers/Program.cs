@@ -13,37 +13,31 @@ namespace Cheers
             System.Console.WriteLine("Hello there! What's your name?");
             string name = System.Console.ReadLine();
             System.Console.WriteLine("Hi, " + name);
-            int counter = 0;
-            char[] ans = { 'a', 'e', 'f', 'h', 'i', 'l', 'm', 'n', 'o', 'r', 's', 'x' };
-            foreach (char letter in name)
+            foreach (char letter in name.ToLower())
             {
-                if (ans.Contains(char.ToLower(letter)))
+                if (Char.IsLetter(letter))
                 {
-                    System.Console.WriteLine("Give me an " + letter + "\n");
-                }
-                else
-                {
-                    System.Console.WriteLine("Give me a " + letter + "\n");
-                }
-                counter += 1;
-                if (counter == name.Length)
-                {
-                    System.Console.WriteLine(name.ToUpper() + " is GRAND! \n");
+                    string mnemonic = "halfnorsemix";
+                    string article = "a";
+                    if (mnemonic.Contains(letter))
+                    {
+                        article = "an";
+                    }
+                    System.Console.WriteLine("Give me " + article + "..." + letter);
                 }
             }
-
+            System.Console.WriteLine(name.ToUpper() + " is.. GRAND!");
             System.Console.WriteLine("Press any key to exit");
             System.Console.ReadKey();
-
-
-            //Get the user's name and print it
-            //Cheer the user on
+            //Get the user's name and print it.
+            //Cheer the user on.
             //For example, if name is "Bob", output should be:
 
-            //Give me a..b
-            //Give me an..o
-            //Give me a..b
+            //Give me a...  b
+            //Give me an... o
+            //Give me a...  b
             //BOB is.. GRAND!
         }
     }
 }
+
